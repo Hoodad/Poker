@@ -54,6 +54,8 @@ public class Hand implements Comparable<Hand> {
 		return hashSet.size() == hand.getCards().size() - numberOfEquals;
 	}
 
+	
+	// TODO: Fix ugly code
 	public boolean hasTriplets(Hand hand) {
 		for (Card card : cards) {
 			ArrayList<Card> copy = new ArrayList<Card>(cards);
