@@ -13,13 +13,13 @@ public class Card implements Comparable<Card> {
 		return suite;
 	}
 	
-	public CardValue getValue() {
+	public CardValue getCardValue() {
 		return value;
 	}
 	
 	@Override
 	public int compareTo(Card other) {
-		return value.getValue() - other.getValue().getValue();
+		return value.getValue() - other.getCardValue().getValue();
 	}
 
 	@Override
