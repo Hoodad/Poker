@@ -85,8 +85,25 @@ public class Hand implements Comparable<Hand> {
 	}
 
 	public boolean isStraight() {
-		// TODO: FIX UGLY CODE!
+		//TODO: Fix ugly code!
+		List<Card> cards = new ArrayList<Card>(this.cards);
 		Collections.sort(cards);
+		boolean aligned = true;
+		int lowestValue = cards.get(0).getCardValue().getValue()-1;
+		for(Card card: cards){
+			int currentValue = card.getCardValue().getValue();
+			if( currentValue - lowestValue != 1){
+				aligned = false;
+			}
+			lowestValue = currentValue;
+		}
+		if(!aligned){
+			if(cards.get(0).getCardValue() == CardValue.TWO && cards.get(4).getCardValue() == CardValue.ACE){
+				return true;
+			}
+			return false;
+		}
+		/*
 		Card removedAce = null;
 		if (getHighestCard().getCardValue() == CardValue.ACE) {
 			removedAce = cards.remove(cards.size() - 1);
@@ -103,6 +120,7 @@ public class Hand implements Comparable<Hand> {
 			return cards.get(0).getCardValue() == CardValue.TWO
 					|| cards.get(3).getCardValue() == CardValue.KING;
 		}
+		*/
 		return true;
 	}
 

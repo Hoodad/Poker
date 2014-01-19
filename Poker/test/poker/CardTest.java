@@ -119,6 +119,8 @@ public class CardTest {
 		Hand highestStraight = createHandFrom(CardValue.ACE, CardValue.KING,
 				CardValue.QUEEN, CardValue.JACK, CardValue.TEN);
 		assertTrue(highestStraight.isStraight());
+		
+		assertEquals(5, highestStraight.getCards().size());
 	}
 
 	@Test
